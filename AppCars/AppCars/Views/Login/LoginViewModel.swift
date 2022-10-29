@@ -16,18 +16,18 @@ class LoginViewModel: ObservableObject {
     var username = ""
     var password = ""
     
-    func login() async -> Result<Bool, Error> {
+    func login() async -> Bool {
         isBusy = true
         //Task {
             do {
                 response = try await Service().login(username: username, password: password)
                 isBusy = false
                 self.token = response?.token ?? ""
-                return .success(true)
+                return true
             } catch {
                 isBusy = false
                 print(error.localizedDescription)
-                return .failure(error.localizedDescription as! Error)
+                return false
             }
         //}
     }
