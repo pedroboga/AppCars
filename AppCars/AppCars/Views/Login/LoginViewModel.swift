@@ -23,7 +23,6 @@ class LoginViewModel: ObservableObject {
                 response = try await Service().login(username: username, password: password)
                 isBusy = false
                 self.token = response?.token ?? ""
-                print(token)
                 return .success(true)
             } catch {
                 isBusy = false
