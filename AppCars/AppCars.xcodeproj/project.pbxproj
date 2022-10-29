@@ -13,6 +13,7 @@
 		5A68DBE5290C600600B9F89B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68DBE4290C600600B9F89B /* LoginView.swift */; };
 		5A68DBE8290C610B00B9F89B /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68DBE7290C610B00B9F89B /* Service.swift */; };
 		5A68DBEB290C65FB00B9F89B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68DBEA290C65FB00B9F89B /* LoginViewModel.swift */; };
+		5A68DBEE290D659700B9F89B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68DBED290D659700B9F89B /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		5A68DBE4290C600600B9F89B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5A68DBE7290C610B00B9F89B /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		5A68DBEA290C65FB00B9F89B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		5A68DBED290D659700B9F89B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		5A68DBEC290D651600B9F89B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				5A68DBED290D659700B9F89B /* HomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				5A68DBEB290C65FB00B9F89B /* LoginViewModel.swift in Sources */,
 				5A68DBE5290C600600B9F89B /* LoginView.swift in Sources */,
 				5A68DBD6290C4E7900B9F89B /* AppCarsApp.swift in Sources */,
+				5A68DBEE290D659700B9F89B /* HomeView.swift in Sources */,
 				5A68DBE8290C610B00B9F89B /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
