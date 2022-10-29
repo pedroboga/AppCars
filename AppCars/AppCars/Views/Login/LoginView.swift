@@ -11,23 +11,27 @@ struct LoginView: View {
     @StateObject private var loginViewModel = LoginViewModel()
     
     var body: some View {
-        Form {
-            HStack {
-                Spacer()
-                Image(systemName: "lock.fill")
-            }
-            TextField("Username", text: $loginViewModel.username)
-            SecureField("Password", text: $loginViewModel.password)
-            
-            HStack {
-                Spacer()
-                Button("Login") {
-                    loginViewModel.login()
+        VStack {
+            if loginViewModel.isBusy {
+                ProgressView()
+            } else {
+                Form {
+                    TextField("Username", text: $loginViewModel.username)
+                    SecureField("Password", text: $loginViewModel.password)
+                    
+                    HStack {
+                        Spacer()
+                        Button("Login") {
+                            Task {
+                                await loginViewModel.login()
+                            }
+                        }
+                        Spacer()
+                    }
                 }
-                Spacer()
+                .buttonStyle(PlainButtonStyle())
             }
         }
-        .buttonStyle(PlainButtonStyle())
     }
 }
 

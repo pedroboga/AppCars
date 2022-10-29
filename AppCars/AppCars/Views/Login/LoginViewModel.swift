@@ -7,24 +7,29 @@
 
 import SwiftUI
 
+@MainActor
 class LoginViewModel: ObservableObject {
     @AppStorage("token", store: .standard) var token = ""
-    @Published var isAuth: Bool = false
+    @Published var response: LoginResponse?
+    @Published var isLoggedIn: Bool = false
+    @Published var isBusy: Bool = false
     var username = ""
     var password = ""
     
-    func login() {
-        Service().login(username: username, password: password) { result in
-            switch result {
-            case .success(let token):
+    func login() async -> Result<Bool, Error> {
+        isBusy = true
+        //Task {
+            do {
+                response = try await Service().login(username: username, password: password)
+                isBusy = false
+                self.token = response?.token ?? ""
                 print(token)
-                self.token = token
-                DispatchQueue.main.async {
-                    self.isAuth = true
-                }
-            case .failure(let error):
+                return .success(true)
+            } catch {
+                isBusy = false
                 print(error.localizedDescription)
+                return .failure(error.localizedDescription as! Error)
             }
-        }
+        //}
     }
 }
