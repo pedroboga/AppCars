@@ -9,27 +9,40 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject private var loginViewModel = LoginViewModel()
+    @State var success: Bool? = false
     
     var body: some View {
         VStack {
             if loginViewModel.isBusy {
                 ProgressView()
             } else {
-                Form {
-                    TextField("Username", text: $loginViewModel.username)
-                    SecureField("Password", text: $loginViewModel.password)
-                    
-                    HStack {
-                        Spacer()
-                        Button("Login") {
-                            Task {
-                                await loginViewModel.login()
+                NavigationView {
+                    Form {
+                        TextField("Username", text: $loginViewModel.username)
+                        SecureField("Password", text: $loginViewModel.password)
+                        
+                        HStack {
+                            Spacer()
+                            NavigationLink(destination: HomeView(), tag: true, selection: $success) {
+                                Button("Login") {
+                                    Task {
+                                        var response = await loginViewModel.login()
+                                        switch response {
+                                        case .success(true):
+                                            self.success = true
+                                        case .failure(let error):
+                                            print(error.localizedDescription)
+                                        case .success(false):
+                                            print("Erro desconhecido")
+                                        }
+                                    }
+                                }
                             }
+                            Spacer()
                         }
-                        Spacer()
                     }
+                    .buttonStyle(PlainButtonStyle())
                 }
-                .buttonStyle(PlainButtonStyle())
             }
         }
     }
