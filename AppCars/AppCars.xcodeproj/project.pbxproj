@@ -14,6 +14,10 @@
 		5A68DBE8290C610B00B9F89B /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68DBE7290C610B00B9F89B /* Service.swift */; };
 		5A68DBEB290C65FB00B9F89B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68DBEA290C65FB00B9F89B /* LoginViewModel.swift */; };
 		5A68DBEE290D659700B9F89B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68DBED290D659700B9F89B /* HomeView.swift */; };
+		5ACDF00E290DDCBE0049E4B5 /* CarListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDF00D290DDCBE0049E4B5 /* CarListCell.swift */; };
+		5ACDF011290DE0FC0049E4B5 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDF010290DE0FC0049E4B5 /* LoginResponse.swift */; };
+		5ACDF013290DE12D0049E4B5 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDF012290DE12D0049E4B5 /* Car.swift */; };
+		5ACDF015290E114D0049E4B5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDF014290E114D0049E4B5 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,10 @@
 		5A68DBE7290C610B00B9F89B /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		5A68DBEA290C65FB00B9F89B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5A68DBED290D659700B9F89B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		5ACDF00D290DDCBE0049E4B5 /* CarListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListCell.swift; sourceTree = "<group>"; };
+		5ACDF010290DE0FC0049E4B5 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		5ACDF012290DE12D0049E4B5 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		5ACDF014290E114D0049E4B5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +65,8 @@
 		5A68DBD4290C4E7900B9F89B /* AppCars */ = {
 			isa = PBXGroup;
 			children = (
+				5ACDF00F290DE0EC0049E4B5 /* Models */,
+				5ACDF00C290DDCA20049E4B5 /* Components */,
 				5A68DBE6290C60F700B9F89B /* Services */,
 				5A68DBE3290C5FF400B9F89B /* Views */,
 				5A68DBD5290C4E7900B9F89B /* AppCarsApp.swift */,
@@ -104,8 +114,26 @@
 			isa = PBXGroup;
 			children = (
 				5A68DBED290D659700B9F89B /* HomeView.swift */,
+				5ACDF014290E114D0049E4B5 /* HomeViewModel.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		5ACDF00C290DDCA20049E4B5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5ACDF00D290DDCBE0049E4B5 /* CarListCell.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		5ACDF00F290DE0EC0049E4B5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5ACDF010290DE0FC0049E4B5 /* LoginResponse.swift */,
+				5ACDF012290DE12D0049E4B5 /* Car.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,11 +206,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ACDF00E290DDCBE0049E4B5 /* CarListCell.swift in Sources */,
+				5ACDF015290E114D0049E4B5 /* HomeViewModel.swift in Sources */,
 				5A68DBEB290C65FB00B9F89B /* LoginViewModel.swift in Sources */,
+				5ACDF013290DE12D0049E4B5 /* Car.swift in Sources */,
 				5A68DBE5290C600600B9F89B /* LoginView.swift in Sources */,
 				5A68DBD6290C4E7900B9F89B /* AppCarsApp.swift in Sources */,
 				5A68DBEE290D659700B9F89B /* HomeView.swift in Sources */,
 				5A68DBE8290C610B00B9F89B /* Service.swift in Sources */,
+				5ACDF011290DE0FC0049E4B5 /* LoginResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
