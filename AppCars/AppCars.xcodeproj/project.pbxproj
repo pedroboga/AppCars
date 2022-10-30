@@ -41,6 +41,7 @@
 		5ACDF018290E789D0049E4B5 /* DetailButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailButton.swift; sourceTree = "<group>"; };
 		5ACDF01A290E790F0049E4B5 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		5ACDF01D290E79C10049E4B5 /* CarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailView.swift; sourceTree = "<group>"; };
+		5ACDF021290EEACD0049E4B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +74,7 @@
 		5A68DBD4290C4E7900B9F89B /* AppCars */ = {
 			isa = PBXGroup;
 			children = (
+				5ACDF021290EEACD0049E4B5 /* Info.plist */,
 				5ACDF00F290DE0EC0049E4B5 /* Models */,
 				5ACDF00C290DDCA20049E4B5 /* Components */,
 				5A68DBE6290C60F700B9F89B /* Services */,
@@ -370,6 +372,7 @@
 				DEVELOPMENT_TEAM = 2APF6AH5C2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AppCars/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -399,6 +402,7 @@
 				DEVELOPMENT_TEAM = 2APF6AH5C2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AppCars/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
