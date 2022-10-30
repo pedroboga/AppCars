@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject private var loginViewModel = LoginViewModel()
+    @State private var username = ""
+    @State private var password = ""
     @State var success: Bool = false
     
     var body: some View {
@@ -18,7 +20,7 @@ struct LoginView: View {
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle(tint: Color("appPrimary")))
                 } else {
-                    TextField("Username", text: $loginViewModel.username)
+                    TextField("Username", text: $username)
                         .padding()
                         .overlay(
                             RoundedRectangle(cornerRadius: 16)
@@ -27,7 +29,7 @@ struct LoginView: View {
                         .padding(.trailing, 10)
                         .padding(.leading,10)
                         .padding(.bottom, 5)
-                    SecureField("Password", text: $loginViewModel.password)
+                    SecureField("Password", text: $password)
                         .padding()
                         .overlay(
                             RoundedRectangle(cornerRadius: 16)
@@ -35,21 +37,21 @@ struct LoginView: View {
                         )
                         .padding(.trailing, 10)
                         .padding(.leading,10)
-//                    Button("Login") {
-//                        Task {
-//                            success = await loginViewModel.login()
-//                        }
-//                    }
-//                    .buttonStyle(PlainButtonStyle())
                     Button {
                         Task {
-                            success = await loginViewModel.login()
+                            success = await loginViewModel.login(username: username, password: password)
                         }
                     } label: {
-                        DetailButton(buttonType: .login)
+                        //DetailButton(buttonType: .login)
+                        Text("Login")
                     }
+                    .foregroundColor(.white)
+                    .frame(width: 260, height: 50)
+                    .background((username.isEmpty || password.isEmpty) ? Color(.lightGray) : Color("appPrimary"))
+                                        .cornerRadius(16)
+                    
+                    .disabled(username.isEmpty || password.isEmpty)
                     .padding()
-
                 }
             }
             .navigationDestination(isPresented: $success) {
