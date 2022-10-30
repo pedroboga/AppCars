@@ -14,11 +14,25 @@ struct HomeView: View {
             NavigationView {
                 List(viewModel.cars) { car in
                     CarListCell(car: car)
+                        .onTapGesture {
+                            viewModel.isShowingDetail = true
+                            viewModel.selectedCar = car
+                        }
                 }
+                .listStyle(.plain)
                 .navigationTitle("Cars")
+                .disabled(viewModel.isShowingDetail)
             }
             .task {
                 viewModel.getCars()
+            }
+            .blur(radius: viewModel.isShowingDetail ? 20 : 0)
+            if viewModel.isShowingDetail {
+                CarDetailView(car: viewModel.selectedCar!, isShowingDetail: $viewModel.isShowingDetail)
+            }
+            if viewModel.isLoading {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: Color("appPrimary")))
             }
         }
     }
