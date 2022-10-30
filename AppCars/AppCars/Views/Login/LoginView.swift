@@ -16,19 +16,44 @@ struct LoginView: View {
             VStack {
                 if loginViewModel.isBusy {
                     ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: Color("appPrimary")))
                 } else {
                     TextField("Username", text: $loginViewModel.username)
+                        .padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(lineWidth: 1)
+                        )
+                        .padding(.trailing, 10)
+                        .padding(.leading,10)
+                        .padding(.bottom, 5)
                     SecureField("Password", text: $loginViewModel.password)
-                    Button("Login") {
+                        .padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(lineWidth: 1)
+                        )
+                        .padding(.trailing, 10)
+                        .padding(.leading,10)
+//                    Button("Login") {
+//                        Task {
+//                            success = await loginViewModel.login()
+//                        }
+//                    }
+//                    .buttonStyle(PlainButtonStyle())
+                    Button {
                         Task {
                             success = await loginViewModel.login()
                         }
+                    } label: {
+                        DetailButton(buttonType: .login)
                     }
-                    .buttonStyle(PlainButtonStyle())
+                    .padding()
+
                 }
             }
             .navigationDestination(isPresented: $success) {
-                HomeView()
+                AppTabView()
             }
         }
     }

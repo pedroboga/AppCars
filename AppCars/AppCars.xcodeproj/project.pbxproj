@@ -22,6 +22,7 @@
 		5ACDF019290E789D0049E4B5 /* DetailButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDF018290E789D0049E4B5 /* DetailButton.swift */; };
 		5ACDF01B290E790F0049E4B5 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDF01A290E790F0049E4B5 /* DismissButton.swift */; };
 		5ACDF01E290E79C10049E4B5 /* CarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDF01D290E79C10049E4B5 /* CarDetailView.swift */; };
+		5ACDF024290EF3710049E4B5 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDF023290EF3710049E4B5 /* AppTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		5ACDF01A290E790F0049E4B5 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		5ACDF01D290E79C10049E4B5 /* CarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailView.swift; sourceTree = "<group>"; };
 		5ACDF021290EEACD0049E4B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5ACDF023290EF3710049E4B5 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		5A68DBE3290C5FF400B9F89B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5ACDF022290EF3570049E4B5 /* TabView */,
 				5ACDF01C290E79B10049E4B5 /* DetailView */,
 				5A68DBEC290D651600B9F89B /* Home */,
 				5A68DBE9290C65E500B9F89B /* Login */,
@@ -156,6 +159,14 @@
 				5ACDF01D290E79C10049E4B5 /* CarDetailView.swift */,
 			);
 			path = DetailView;
+			sourceTree = "<group>";
+		};
+		5ACDF022290EF3570049E4B5 /* TabView */ = {
+			isa = PBXGroup;
+			children = (
+				5ACDF023290EF3710049E4B5 /* AppTabView.swift */,
+			);
+			path = TabView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +243,7 @@
 				5ACDF019290E789D0049E4B5 /* DetailButton.swift in Sources */,
 				5ACDF015290E114D0049E4B5 /* HomeViewModel.swift in Sources */,
 				5A68DBEB290C65FB00B9F89B /* LoginViewModel.swift in Sources */,
+				5ACDF024290EF3710049E4B5 /* AppTabView.swift in Sources */,
 				5ACDF017290E194A0049E4B5 /* RemoteImage.swift in Sources */,
 				5ACDF013290DE12D0049E4B5 /* Car.swift in Sources */,
 				5ACDF01B290E790F0049E4B5 /* DismissButton.swift in Sources */,
