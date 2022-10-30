@@ -18,6 +18,7 @@
 		5ACDF011290DE0FC0049E4B5 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDF010290DE0FC0049E4B5 /* LoginResponse.swift */; };
 		5ACDF013290DE12D0049E4B5 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDF012290DE12D0049E4B5 /* Car.swift */; };
 		5ACDF015290E114D0049E4B5 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDF014290E114D0049E4B5 /* HomeViewModel.swift */; };
+		5ACDF017290E194A0049E4B5 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDF016290E194A0049E4B5 /* RemoteImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		5ACDF010290DE0FC0049E4B5 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		5ACDF012290DE12D0049E4B5 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		5ACDF014290E114D0049E4B5 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		5ACDF016290E194A0049E4B5 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				5A68DBE7290C610B00B9F89B /* Service.swift */,
+				5ACDF016290E194A0049E4B5 /* RemoteImage.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				5ACDF00E290DDCBE0049E4B5 /* CarListCell.swift in Sources */,
 				5ACDF015290E114D0049E4B5 /* HomeViewModel.swift in Sources */,
 				5A68DBEB290C65FB00B9F89B /* LoginViewModel.swift in Sources */,
+				5ACDF017290E194A0049E4B5 /* RemoteImage.swift in Sources */,
 				5ACDF013290DE12D0049E4B5 /* Car.swift in Sources */,
 				5A68DBE5290C600600B9F89B /* LoginView.swift in Sources */,
 				5A68DBD6290C4E7900B9F89B /* AppCarsApp.swift in Sources */,

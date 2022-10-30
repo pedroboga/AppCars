@@ -26,3 +26,7 @@ enum Tipo: String, Codable {
     case esportivos = "esportivos"
     case luxo = "luxo"
 }
+
+struct MockData {
+    static let sampleCar = Car(id: 1, nome: "Fusca", tipo: Tipo.classicos, descricao: "Descrição do carro aqui", urlFoto: "", urlVideo: "", latitude: "", longitude: "")
+}

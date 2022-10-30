@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct CarListCell: View {
+    var car: Car
     var body: some View {
         HStack {
-            Rectangle()
-                .foregroundColor(.red)
-                .frame(width: 250)
+            CarRemoteImage(urlString: car.urlFoto ?? "")
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 200)
+                .cornerRadius(8)
             Spacer()
-            Text("Teste")
+            Text(car.nome ?? "")
                 .padding()
         }
         .frame(height: 150)
@@ -23,7 +25,7 @@ struct CarListCell: View {
 
 struct CarListCell_Previews: PreviewProvider {
     static var previews: some View {
-        CarListCell()
+        CarListCell(car: MockData.sampleCar)
             .previewLayout(.sizeThatFits)
     }
 }
