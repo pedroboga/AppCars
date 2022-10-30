@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct CarDetailView: View {
     let car: Car
     @Binding var isShowingDetail: Bool
+    @State private var showSheet: Bool = false
     
     var body: some View {
         VStack {
@@ -25,6 +27,26 @@ struct CarDetailView: View {
                     .multilineTextAlignment(.center)
                     .font(.body)
                     .padding()
+            }
+            Spacer()
+            Button {
+                showSheet.toggle()
+            } label: {
+                DetailButton(buttonType: .video)
+            }
+            .sheet(isPresented: $showSheet, content: {
+                VideoPlayer(player: AVPlayer(url: URL(string: car.urlVideo ?? "")!))
+                    .frame(width: 400, height: 300, alignment: .center)
+                    .presentationDetents([.height(350)])
+            })
+            Button {
+                let mapsURL =  URL(string: "maps://?saddr=&daddr=\(car.latitude ?? "0"),\(car.longitude ?? "0")")
+                print(mapsURL)
+                if UIApplication.shared.canOpenURL(mapsURL!) {
+                    UIApplication.shared.open(mapsURL!, options: [:], completionHandler: nil)
+                }
+            } label: {
+                DetailButton(buttonType: .location)
             }
             .padding(.bottom, 30)
         }
