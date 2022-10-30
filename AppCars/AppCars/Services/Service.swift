@@ -23,6 +23,7 @@ class Service {
     static let baseURL = "https://carros-springboot.herokuapp.com/api/v2"
     private let login = baseURL + "/login"
     private let list = baseURL + "/carros"
+    private let cache = NSCache<NSString, UIImage>()
     
     func login(username: String, password: String) async throws -> LoginResponse {
         guard let url = URL(string: login) else {
@@ -48,7 +49,6 @@ class Service {
             throw ApiError.invalidUrl
         }
         var request = URLRequest(url: url)
-        //request.httpMethod = "GET"
         request.addValue("Bearer " + token, forHTTPHeaderField: "Authorization")
         
         let (data, _) = try await URLSession.shared.data(for: request)
@@ -58,5 +58,27 @@ class Service {
         } catch {
             throw ApiError.errorData
         }
+    }
+    
+    func downloadImage(fromURLString urlString: String, completed: @escaping (UIImage?) -> Void) {
+        let cacheKey = NSString(string: urlString)
+        if let image = cache.object(forKey: cacheKey) {
+            completed(image)
+            return
+        }
+        guard let url = URL(string: urlString) else {
+            completed(nil)
+            return
+        }
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+            guard let data = data, let image = UIImage(data: data) else {
+                completed(nil)
+                return
+            }
+            
+            self.cache.setObject(image, forKey: cacheKey)
+            completed(image)
+        }
+        task.resume()
     }
 }

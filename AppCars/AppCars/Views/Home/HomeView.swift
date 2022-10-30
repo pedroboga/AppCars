@@ -13,7 +13,7 @@ struct HomeView: View {
         ZStack {
             NavigationView {
                 List(viewModel.cars) { car in
-                    Text(car.nome ?? "")
+                    CarListCell(car: car)
                 }
                 .navigationTitle("Cars")
             }
