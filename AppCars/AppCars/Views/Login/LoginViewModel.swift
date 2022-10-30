@@ -13,10 +13,10 @@ class LoginViewModel: ObservableObject {
     @Published var response: LoginResponse?
     @Published var isLoggedIn: Bool = false
     @Published var isBusy: Bool = false
-    var username = ""
-    var password = ""
+    //var username = ""
+    //var password = ""
     
-    func login() async -> Bool {
+    func login(username: String, password: String) async -> Bool {
         isBusy = true
         //Task {
             do {
