@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AppTabView: View {
+    var userProfile: LoginResponse?
     var body: some View {
         TabView {
             HomeView()
@@ -18,9 +19,9 @@ struct AppTabView: View {
                 .tabItem {
                     Label("Favorites", systemImage: "star")
                 }
-            Text("Account")
+            ProfileView(userData: userProfile)
                 .tabItem {
-                    Label("Account", systemImage: "person")
+                    Label("Profile", systemImage: "person")
                 }
         }
         .accentColor(Color("appPrimary"))

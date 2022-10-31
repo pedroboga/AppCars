@@ -20,6 +20,10 @@ struct LoginView: View {
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle(tint: Color("appPrimary")))
                 } else {
+                    Text("Car App")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .padding(.bottom, 100)
                     TextField("Username", text: $username)
                         .padding()
                         .overlay(
@@ -55,7 +59,7 @@ struct LoginView: View {
                 }
             }
             .navigationDestination(isPresented: $success) {
-                AppTabView()
+                AppTabView(userProfile: loginViewModel.response)
             }
         }
     }
