@@ -11,6 +11,7 @@ import AVKit
 struct CarDetailView: View {
     let car: Car
     @Binding var isShowingDetail: Bool
+    @Binding var isFavorite: Bool
     @State private var showSheet: Bool = false
     
     var body: some View {
@@ -37,7 +38,7 @@ struct CarDetailView: View {
             .sheet(isPresented: $showSheet, content: {
                 VideoPlayer(player: AVPlayer(url: URL(string: car.urlVideo ?? "")!))
                     .frame(width: 400, height: 300, alignment: .center)
-                    .presentationDetents([.height(350)])
+                    //.presentationDetents([.height(350)])
             })
             Button {
                 let mapsURL =  URL(string: "maps://?saddr=&daddr=\(car.latitude ?? "0"),\(car.longitude ?? "0")")
@@ -54,16 +55,25 @@ struct CarDetailView: View {
         .background(Color(.systemBackground))
         .cornerRadius(12)
         .shadow(radius: 40)
-        .overlay(Button(action: {
-            isShowingDetail = false
-        }, label: {
-            DismissButton()
-        }), alignment: .topTrailing)
+        .overlay(
+            HStack {
+                Button(action: {
+                    isFavorite.toggle()
+            }, label: {
+                Image(systemName: isFavorite ? "heart.fill": "heart")
+        })
+                Button(action: {
+                isShowingDetail = false
+            }, label: {
+                DismissButton()
+        })
+            }, alignment: .topTrailing
+        )
     }
 }
 
 struct CarDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CarDetailView(car: MockData.sampleCar, isShowingDetail: .constant(false))
+        CarDetailView(car: MockData.sampleCar, isShowingDetail: .constant(false), isFavorite: .constant(false))
     }
 }

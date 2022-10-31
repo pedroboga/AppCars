@@ -28,7 +28,7 @@ struct HomeView: View {
             }
             .blur(radius: viewModel.isShowingDetail ? 20 : 0)
             if viewModel.isShowingDetail {
-                CarDetailView(car: viewModel.selectedCar!, isShowingDetail: $viewModel.isShowingDetail)
+                CarDetailView(car: viewModel.selectedCar!, isShowingDetail: $viewModel.isShowingDetail, isFavorite: $viewModel.isFavorite)
             }
             if viewModel.isLoading {
                 ProgressView()
