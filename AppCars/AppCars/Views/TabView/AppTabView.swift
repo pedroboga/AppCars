@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AppTabView: View {
     @Environment(\.dismiss) private var dismiss
+    @StateObject var favorites = FavoritesViewModel()
     var userProfile: LoginResponse?
     var body: some View {
         NavigationView {
@@ -17,7 +18,7 @@ struct AppTabView: View {
                     .tabItem {
                         Label("Home", systemImage: "house")
                     }
-                Text("Favorites")
+                FavoritesView()
                     .tabItem {
                         Label("Favorites", systemImage: "star")
                     }
@@ -35,6 +36,7 @@ struct AppTabView: View {
             .accentColor(Color("appPrimary"))
         }
         .navigationBarBackButtonHidden(true)
+        .environmentObject(favorites)
     }
 }
 

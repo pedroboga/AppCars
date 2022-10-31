@@ -11,7 +11,7 @@ struct CarResponse: Decodable {
     let request: [Car]
 }
 
-struct Car: Decodable, Identifiable {
+struct Car: Codable, Identifiable {
     let id: Int
     let nome: String?
     let tipo: Tipo?

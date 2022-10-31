@@ -9,6 +9,7 @@ import SwiftUI
 import AVKit
 
 struct CarDetailView: View {
+    @EnvironmentObject var favorites: FavoritesViewModel
     let car: Car
     @Binding var isShowingDetail: Bool
     @Binding var isFavorite: Bool
@@ -42,7 +43,7 @@ struct CarDetailView: View {
             })
             Button {
                 let mapsURL =  URL(string: "maps://?saddr=&daddr=\(car.latitude ?? "0"),\(car.longitude ?? "0")")
-                print(mapsURL)
+                //print(mapsURL)
                 if UIApplication.shared.canOpenURL(mapsURL!) {
                     UIApplication.shared.open(mapsURL!, options: [:], completionHandler: nil)
                 }
@@ -57,11 +58,19 @@ struct CarDetailView: View {
         .shadow(radius: 40)
         .overlay(
             HStack {
-                Button(action: {
-                    isFavorite.toggle()
-            }, label: {
+//                Button(action: {
+//                    isFavorite.toggle()
+//                    isFavorite ? favorites.addItem(car: car) : favorites.removeItem(car: car)
+//            }, label: {
+//                Image(systemName: isFavorite ? "heart.fill": "heart")
+//        })
                 Image(systemName: isFavorite ? "heart.fill": "heart")
-        })
+                    .gesture(
+                    TapGesture()
+                        .onEnded({ _ in
+                            isFavorite.toggle()
+                            isFavorite ? favorites.addItem(car: car) : favorites.removeItem(car: car)
+                        }))
                 Button(action: {
                 isShowingDetail = false
             }, label: {
