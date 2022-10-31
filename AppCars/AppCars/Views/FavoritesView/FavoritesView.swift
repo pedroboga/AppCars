@@ -12,10 +12,16 @@ struct FavoritesView: View {
     var body: some View {
         NavigationView {
             VStack {
-                ForEach(favorites.items) { item in
-                    Text(item.nome ?? "")
+                List(favorites.items) { car in
+                    HStack {
+                        CarRemoteImage(urlString: car.urlFoto ?? "")
+                            .frame(width: 50, height: 20, alignment: .leading)
+                        Text(car.nome ?? "")
+                    }
                 }
+                .listStyle(.automatic)
             }
+            .navigationTitle("Favoritos")
         }
         .onAppear {
             favorites.getItems()

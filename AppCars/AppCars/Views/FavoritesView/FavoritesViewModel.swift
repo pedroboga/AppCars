@@ -23,7 +23,7 @@ class FavoritesViewModel: ObservableObject {
     
     func checkIsFavorite(car: Car) -> Bool {
         getItems()
-        var item = items.filter { $0.id == car.id }
+        let item = items.filter { $0.id == car.id }
         return !item.isEmpty
     }
     
