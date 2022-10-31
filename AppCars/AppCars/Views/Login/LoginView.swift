@@ -49,6 +49,7 @@ struct LoginView: View {
                             if success {
                                 username = ""
                                 password = ""
+                                loginViewModel.saveUserData()
                             } else {
                                 showingAlert = true
                             }
