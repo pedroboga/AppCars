@@ -54,9 +54,7 @@ struct NavBackButton: View {
                 Image(systemName: "rectangle.portrait.and.arrow.right")
                 Text("Sign out")
             }
-            
         }
-
     }
 }
 
