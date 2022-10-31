@@ -7,10 +7,14 @@
 
 import SwiftUI
 
-enum ApiError: Error {
-    case invalidUrl
-    case invalidUser
-    case errorData
+enum ApiError: String, Error, LocalizedError {
+    case invalidUrl = "Erro ao conectar com o servidor. Tente novamente mais tarde."
+    case invalidUser = "As credenciais informadas não estão corretas."
+    case errorData = "Erro ao recuperar os dados. Tente novamente mais tarde."
+    
+    var errorDescription: String? {
+        self.rawValue
+    }
 }
 
 struct LoginBody: Codable {

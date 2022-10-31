@@ -12,6 +12,7 @@ struct LoginView: View {
     @State private var username = ""
     @State private var password = ""
     @State var success: Bool = false
+    @State private var showingAlert = false
     
     var body: some View {
         NavigationStack {
@@ -47,11 +48,16 @@ struct LoginView: View {
                             if success {
                                 username = ""
                                 password = ""
+                            } else {
+                                showingAlert = true
                             }
                         }
                     } label: {
                         //DetailButton(buttonType: .login)
                         Text("Login")
+                    }
+                    .alert(loginViewModel.error, isPresented: $showingAlert) {
+                        Button("Ok", role: .cancel) {}
                     }
                     .foregroundColor(.white)
                     .frame(width: 260, height: 50)
