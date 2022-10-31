@@ -13,8 +13,7 @@ class LoginViewModel: ObservableObject {
     @Published var response: LoginResponse?
     @Published var isLoggedIn: Bool = false
     @Published var isBusy: Bool = false
-    //var username = ""
-    //var password = ""
+    @Published var error: String = ""
     
     func login(username: String, password: String) async -> Bool {
         isBusy = true
@@ -26,7 +25,7 @@ class LoginViewModel: ObservableObject {
                 return true
             } catch {
                 isBusy = false
-                print(error.localizedDescription)
+                self.error = error.localizedDescription
                 return false
             }
         //}
