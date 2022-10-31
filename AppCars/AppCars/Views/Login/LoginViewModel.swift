@@ -10,8 +10,8 @@ import SwiftUI
 @MainActor
 class LoginViewModel: ObservableObject {
     @AppStorage("token", store: .standard) var token = ""
+    @AppStorage("isLoggedIn", store: .standard) var isLoggedIn: Bool?
     @Published var response: LoginResponse?
-    @Published var isLoggedIn: Bool = false
     @Published var isBusy: Bool = false
     @Published var error: String = ""
     
@@ -21,6 +21,7 @@ class LoginViewModel: ObservableObject {
             do {
                 response = try await Service().login(username: username, password: password)
                 isBusy = false
+                isLoggedIn = true
                 self.token = response?.token ?? ""
                 return true
             } catch {

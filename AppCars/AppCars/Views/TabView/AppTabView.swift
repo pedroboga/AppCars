@@ -41,9 +41,13 @@ struct AppTabView: View {
 }
 
 struct NavBackButton: View {
+    @AppStorage("token", store: .standard) var token = ""
+    @AppStorage("isLoggedIn", store: .standard) var isLoggedIn: Bool = false
     let dismiss: DismissAction
     var body: some View {
         Button {
+            token = ""
+            isLoggedIn = false
             dismiss()
         } label: {
             HStack {
