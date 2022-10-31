@@ -9,12 +9,14 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var viewModel = HomeViewModel()
+    @EnvironmentObject var favorites: FavoritesViewModel
     var body: some View {
         ZStack {
             NavigationView {
                 List(viewModel.cars) { car in
                     CarListCell(car: car)
                         .onTapGesture {
+                            viewModel.isFavorite = favorites.checkIsFavorite(car: car)
                             viewModel.isShowingDetail = true
                             viewModel.selectedCar = car
                         }

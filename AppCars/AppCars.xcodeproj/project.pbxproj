@@ -14,6 +14,8 @@
 		5A68DBE8290C610B00B9F89B /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68DBE7290C610B00B9F89B /* Service.swift */; };
 		5A68DBEB290C65FB00B9F89B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68DBEA290C65FB00B9F89B /* LoginViewModel.swift */; };
 		5A68DBEE290D659700B9F89B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68DBED290D659700B9F89B /* HomeView.swift */; };
+		5AC68158291001D2009DC2BA /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC68157291001D2009DC2BA /* FavoritesViewModel.swift */; };
+		5AC6815A29100673009DC2BA /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC6815929100673009DC2BA /* FavoritesView.swift */; };
 		5ACDF00E290DDCBE0049E4B5 /* CarListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDF00D290DDCBE0049E4B5 /* CarListCell.swift */; };
 		5ACDF011290DE0FC0049E4B5 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDF010290DE0FC0049E4B5 /* LoginResponse.swift */; };
 		5ACDF013290DE12D0049E4B5 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ACDF012290DE12D0049E4B5 /* Car.swift */; };
@@ -35,6 +37,8 @@
 		5A68DBE7290C610B00B9F89B /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		5A68DBEA290C65FB00B9F89B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5A68DBED290D659700B9F89B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		5AC68157291001D2009DC2BA /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		5AC6815929100673009DC2BA /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		5ACDF00D290DDCBE0049E4B5 /* CarListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListCell.swift; sourceTree = "<group>"; };
 		5ACDF010290DE0FC0049E4B5 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		5ACDF012290DE12D0049E4B5 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 		5A68DBE3290C5FF400B9F89B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5AC68156291001B9009DC2BA /* FavoritesView */,
 				5ACDF025290F1E730049E4B5 /* ProfileView */,
 				5ACDF022290EF3570049E4B5 /* TabView */,
 				5ACDF01C290E79B10049E4B5 /* DetailView */,
@@ -135,6 +140,15 @@
 				5ACDF014290E114D0049E4B5 /* HomeViewModel.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		5AC68156291001B9009DC2BA /* FavoritesView */ = {
+			isa = PBXGroup;
+			children = (
+				5AC68157291001D2009DC2BA /* FavoritesViewModel.swift */,
+				5AC6815929100673009DC2BA /* FavoritesView.swift */,
+			);
+			path = FavoritesView;
 			sourceTree = "<group>";
 		};
 		5ACDF00C290DDCA20049E4B5 /* Components */ = {
@@ -252,6 +266,7 @@
 			files = (
 				5ACDF00E290DDCBE0049E4B5 /* CarListCell.swift in Sources */,
 				5ACDF019290E789D0049E4B5 /* DetailButton.swift in Sources */,
+				5AC68158291001D2009DC2BA /* FavoritesViewModel.swift in Sources */,
 				5ACDF015290E114D0049E4B5 /* HomeViewModel.swift in Sources */,
 				5A68DBEB290C65FB00B9F89B /* LoginViewModel.swift in Sources */,
 				5ACDF024290EF3710049E4B5 /* AppTabView.swift in Sources */,
@@ -262,6 +277,7 @@
 				5A68DBE5290C600600B9F89B /* LoginView.swift in Sources */,
 				5A68DBD6290C4E7900B9F89B /* AppCarsApp.swift in Sources */,
 				5A68DBEE290D659700B9F89B /* HomeView.swift in Sources */,
+				5AC6815A29100673009DC2BA /* FavoritesView.swift in Sources */,
 				5ACDF01E290E79C10049E4B5 /* CarDetailView.swift in Sources */,
 				5A68DBE8290C610B00B9F89B /* Service.swift in Sources */,
 				5ACDF011290DE0FC0049E4B5 /* LoginResponse.swift in Sources */,
