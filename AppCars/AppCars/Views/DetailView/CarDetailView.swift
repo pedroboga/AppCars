@@ -15,6 +15,39 @@ struct CarDetailView: View {
     @Binding var isFavorite: Bool
     @State private var showSheet: Bool = false
     
+    fileprivate func FavoriteButton() -> some View {
+        return Image(systemName: isFavorite ? "heart.fill": "heart")
+            .gesture(
+                TapGesture()
+                    .onEnded({ _ in
+                        isFavorite.toggle()
+                        isFavorite ? favorites.addItem(car: car) : favorites.removeItem(car: car)
+                    }))
+    }
+    
+    fileprivate func MapButton() -> Button<DetailButton> {
+        return Button {
+            let mapsURL =  URL(string: "maps://q?\(car.latitude ?? "0"),\(car.longitude ?? "0")")
+            if UIApplication.shared.canOpenURL(mapsURL!) {
+                UIApplication.shared.open(mapsURL!, options: [:], completionHandler: nil)
+            }
+        } label: {
+            DetailButton(buttonType: .location)
+        }
+    }
+    
+    fileprivate func VideoButton() -> some View {
+        return Button {
+            showSheet.toggle()
+        } label: {
+            DetailButton(buttonType: .video)
+        }
+        .sheet(isPresented: $showSheet, content: {
+            VideoPlayer(player: AVPlayer(url: URL(string: car.urlVideo ?? "https://archive.org/download/Rick_Astley_Never_Gonna_Give_You_Up/Rick_Astley_Never_Gonna_Give_You_Up.mp4")!))
+                .frame(width: 400, height: 300, alignment: .center)
+        })
+    }
+    
     var body: some View {
         VStack {
             CarRemoteImage(urlString: car.urlFoto ?? "")
@@ -31,25 +64,8 @@ struct CarDetailView: View {
                     .padding()
             }
             Spacer()
-            Button {
-                showSheet.toggle()
-            } label: {
-                DetailButton(buttonType: .video)
-            }
-            .sheet(isPresented: $showSheet, content: {
-                VideoPlayer(player: AVPlayer(url: URL(string: car.urlVideo ?? "")!))
-                    .frame(width: 400, height: 300, alignment: .center)
-                    //.presentationDetents([.height(350)])
-            })
-            Button {
-                let mapsURL =  URL(string: "maps://?saddr=&daddr=\(car.latitude ?? "0"),\(car.longitude ?? "0")")
-                //print(mapsURL)
-                if UIApplication.shared.canOpenURL(mapsURL!) {
-                    UIApplication.shared.open(mapsURL!, options: [:], completionHandler: nil)
-                }
-            } label: {
-                DetailButton(buttonType: .location)
-            }
+            VideoButton()
+            MapButton()
             .padding(.bottom, 30)
         }
         .frame(width: 300, height: 525)
@@ -58,19 +74,7 @@ struct CarDetailView: View {
         .shadow(radius: 40)
         .overlay(
             HStack {
-//                Button(action: {
-//                    isFavorite.toggle()
-//                    isFavorite ? favorites.addItem(car: car) : favorites.removeItem(car: car)
-//            }, label: {
-//                Image(systemName: isFavorite ? "heart.fill": "heart")
-//        })
-                Image(systemName: isFavorite ? "heart.fill": "heart")
-                    .gesture(
-                    TapGesture()
-                        .onEnded({ _ in
-                            isFavorite.toggle()
-                            isFavorite ? favorites.addItem(car: car) : favorites.removeItem(car: car)
-                        }))
+                FavoriteButton()
                 Button(action: {
                 isShowingDetail = false
             }, label: {
