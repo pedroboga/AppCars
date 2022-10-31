@@ -10,7 +10,6 @@ import SwiftUI
 enum ButtonType {
     case video
     case location
-    case login
 }
 
 struct DetailButton: View {
@@ -19,22 +18,12 @@ struct DetailButton: View {
         HStack {
             switch buttonType {
             case .location:
-                Image(systemName: "location.magnifyingglass")
+                Image(systemName: "map")
                 Text("Onde encontrar")
             case .video:
                 Image(systemName: "video")
                 Text("Vídeo")
-            case .login:
-                Text("Login")
             }
-            
-//            if buttonType == .video {
-//                Image(systemName: "video")
-//                Text("Vídeo")
-//            } else if buttonType == .location {
-//                Image(systemName: "location.magnifyingglass")
-//                Text("Onde encontrar")
-//            }
         }
         .font(.title3)
         .fontWeight(.semibold)

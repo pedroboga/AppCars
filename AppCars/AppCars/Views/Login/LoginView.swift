@@ -22,8 +22,9 @@ struct LoginView: View {
                         .progressViewStyle(CircularProgressViewStyle(tint: Color("appPrimary")))
                 } else {
                     Text("Car App")
-                        .font(.title)
+                        .font(.largeTitle)
                         .fontWeight(.bold)
+                        .foregroundColor(Color("appPrimary"))
                         .padding(.bottom, 100)
                     TextField("Username", text: $username)
                         .padding()
@@ -53,17 +54,15 @@ struct LoginView: View {
                             }
                         }
                     } label: {
-                        //DetailButton(buttonType: .login)
                         Text("Login")
+                            .foregroundColor(.white)
+                            .frame(width: 260, height: 50)
+                            .background((username.isEmpty || password.isEmpty) ? Color(.lightGray) : Color("appPrimary"))
+                                                .cornerRadius(16)
                     }
                     .alert(loginViewModel.error, isPresented: $showingAlert) {
                         Button("Ok", role: .cancel) {}
                     }
-                    .foregroundColor(.white)
-                    .frame(width: 260, height: 50)
-                    .background((username.isEmpty || password.isEmpty) ? Color(.lightGray) : Color("appPrimary"))
-                                        .cornerRadius(16)
-                    
                     .disabled(username.isEmpty || password.isEmpty)
                     .padding()
                 }
