@@ -22,7 +22,7 @@ struct AppTabView: View {
                     .tabItem {
                         Label("Favorites", systemImage: "star")
                     }
-                ProfileView(userData: userProfile)
+                ProfileView()
                     .tabItem {
                         Label("Profile", systemImage: "person")
                     }

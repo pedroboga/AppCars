@@ -12,14 +12,22 @@ struct FavoritesView: View {
     var body: some View {
         NavigationView {
             VStack {
-                List(favorites.items) { car in
-                    HStack {
-                        CarRemoteImage(urlString: car.urlFoto ?? "")
-                            .frame(width: 50, height: 20, alignment: .leading)
-                        Text(car.nome ?? "")
+                if favorites.items.count > 0 {
+                    List(favorites.items) { car in
+                        HStack {
+                            CarRemoteImage(urlString: car.urlFoto ?? "")
+                                .frame(width: 50, height: 20, alignment: .leading)
+                            Text(car.nome ?? "")
+                        }
                     }
+                    .listStyle(.automatic)
+                } else {
+                    Text("Marque um carro preferido para adicionar a sua lista de favoritos!")
+                        .multilineTextAlignment(.center)
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(Color("appPrimary"))
                 }
-                .listStyle(.automatic)
             }
             .navigationTitle("Favoritos")
         }

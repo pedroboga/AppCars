@@ -29,4 +29,10 @@ class LoginViewModel: ObservableObject {
             return false
         }
     }
+    
+    func saveUserData() {
+        if let encodedData = try? JSONEncoder().encode(response) {
+            UserDefaults.standard.set(encodedData, forKey: "userData")
+        }
+    }
 }
