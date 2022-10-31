@@ -19,11 +19,11 @@ struct DetailButton: View {
         HStack {
             switch buttonType {
             case .location:
-                Image(systemName: "video")
-                Text("Vídeo")
-            case .video:
                 Image(systemName: "location.magnifyingglass")
                 Text("Onde encontrar")
+            case .video:
+                Image(systemName: "video")
+                Text("Vídeo")
             case .login:
                 Text("Login")
             }
