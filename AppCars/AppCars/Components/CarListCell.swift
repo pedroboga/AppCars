@@ -13,13 +13,14 @@ struct CarListCell: View {
         HStack {
             CarRemoteImage(urlString: car.urlFoto ?? "")
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 200)
-                .cornerRadius(8)
+                .frame(width: 200, height: 150)
             Spacer()
             Text(car.nome ?? "")
                 .padding()
         }
+        .background(Color(.systemBackground).cornerRadius(8).shadow(color: .primary.opacity(0.3), radius: 5, x: 0, y: 2))
         .frame(height: 150)
+        
     }
 }
 

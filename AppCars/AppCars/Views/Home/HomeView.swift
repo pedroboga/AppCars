@@ -18,6 +18,7 @@ struct HomeView: View {
                             viewModel.isShowingDetail = true
                             viewModel.selectedCar = car
                         }
+                        .listRowSeparator(.hidden)
                 }
                 .listStyle(.plain)
                 .navigationTitle("Cars")
