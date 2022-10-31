@@ -44,6 +44,10 @@ struct LoginView: View {
                     Button {
                         Task {
                             success = await loginViewModel.login(username: username, password: password)
+                            if success {
+                                username = ""
+                                password = ""
+                            }
                         }
                     } label: {
                         //DetailButton(buttonType: .login)

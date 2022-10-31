@@ -12,6 +12,7 @@ final class HomeViewModel: ObservableObject {
     @Published var cars: [Car] = []
     @Published var isLoading: Bool = false
     @Published var isShowingDetail = false
+    @Published var isFavorite = false
     @Published var selectedCar: Car?
     
     func getCars() {
