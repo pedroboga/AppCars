@@ -17,18 +17,16 @@ class LoginViewModel: ObservableObject {
     
     func login(username: String, password: String) async -> Bool {
         isBusy = true
-        //Task {
-            do {
-                response = try await Service().login(username: username, password: password)
-                isBusy = false
-                isLoggedIn = true
-                self.token = response?.token ?? ""
-                return true
-            } catch {
-                isBusy = false
-                self.error = error.localizedDescription
-                return false
-            }
-        //}
+        do {
+            response = try await Service().login(username: username, password: password)
+            isBusy = false
+            isLoggedIn = true
+            self.token = response?.token ?? ""
+            return true
+        } catch {
+            isBusy = false
+            self.error = error.localizedDescription
+            return false
+        }
     }
 }
